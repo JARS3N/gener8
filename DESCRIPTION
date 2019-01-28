@@ -1,0 +1,9 @@
+Package: gener8
+Title: resampling of microplate data
+Version: 0.0.0.9000
+Authors@R: person("jars3n", email = "jars3n@gmail.com", role = c("aut", "cre"))
+Description: resampling of microplate data
+Depends: R (>= 3.0.1)
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
