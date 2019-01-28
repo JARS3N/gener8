@@ -5,11 +5,6 @@ sets<-function(elements,size,blocksize,rssreps=1000){
   # rss to find best distribution of elements
   all<-lapply(elements,function(u)(blocks(elements,u,size,blocksize)))
   replicates<-lapply(1:rssreps,function(i){unique_sets(all,length(elements),blocksize)})
-  rng<-unlist(lapply(replicates,function(u){diff(range(table(unlist(u))))}))
-  rss<-unlist(lapply(replicates,function(u){
-    x<-table(unlist(u))-(size*blocksize)
-    x2<- sapply(x,function(u)u^2)
-    sqrt(sum(x2))
-  }))
+  rss<-unlist(lapply(replicates,rss_set))
   replicates[rss==min(rss)][[1]]
 }
